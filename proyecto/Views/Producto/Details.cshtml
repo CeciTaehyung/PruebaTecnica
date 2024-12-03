@@ -1,0 +1,39 @@
+﻿@model IEnumerable<proyectoEN.Productos>  
+
+@{
+    ViewData["Title"] = "Lista de Productos";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Crear Nuevo Producto</a>
+</p>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.First().id)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Nombre)</th>
+                <th>@Html.DisplayNameFor(model => model.First().CategoriaId)</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.id)</td>
+                <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.CategoriaId)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.id" class="btn btn-primary btn-sm">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.id" class="btn btn-info btn-sm">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.id" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
