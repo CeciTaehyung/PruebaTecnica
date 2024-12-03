@@ -2,6 +2,7 @@
 using proyecto.Models;
 using System.Diagnostics;
 
+//Error al mostrar vistas
 namespace proyecto.Controllers
 {
     public class HomeController : Controller
